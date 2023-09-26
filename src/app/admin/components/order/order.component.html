@@ -1,0 +1,263 @@
+<p-toast></p-toast>
+<p-toolbar styleClass="mb-4 gap-2">
+    <ng-template pTemplate="left">
+        <!-- <button pButton pRipple label="Update" icon="pi pi-plus" class="p-button-info mr-2" (click)="openNew()" style="margin-right: 5px" ></button> -->
+        <!-- <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" 
+        (click)="confirmDelete($event)" 
+        [disabled]="!selectedItems || !selectedItems.length"></button> -->
+    </ng-template>
+
+    <ng-template pTemplate="right">
+        <!-- <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload> -->
+        <!-- <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button> -->
+    </ng-template>
+</p-toolbar>
+
+<p-table #dt [value]="records" [rows]="10" [paginator]="true" 
+         [rowHover]="true" dataKey="id"
+         [(selection)]="selectedItems"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true"
+        styleClass="p-datatable-sm">
+       
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+               
+                <th></th>
+                <th></th>
+                <th pSortableColumn="id" style="min-width:12rem;">ID <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="orderTrackingNumber" style="min-width:12rem;">Tracking Number <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="totalQuantity" style="min-width:12rem;">Total Quantity <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="totalPrice" style="min-width:12rem;">Total Price <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="status" style="min-width:12rem;">Status <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="paymentMethod" style="min-width:12rem;">Payment Method <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="OrderItem" style="min-width:12rem;">Order Items <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="customer" style="min-width:12rem;">Customer <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="shippingAddress" style="min-width:12rem;">Shipping Address <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="billingAddress" style="min-width:12rem;">Billing Address <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="dateCreated" style="min-width:12rem;">Date Created <p-sortIcon field="nitdv"></p-sortIcon></th>
+                <th pSortableColumn="lastUpdated" style="min-width:12rem;">Last Updated <p-sortIcon field="nitdv"></p-sortIcon></th>
+            </tr>
+            
+        </ng-template>
+        
+       
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                </td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success " (click)="editProduct(product)"></button>
+                </td>
+                <td>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger " (click)="deleteProduct(product,$event)"></button>
+                </td>
+
+                <td>{{product.id}}</td>
+                <td>{{product.orderTrackingNumber}}</td>
+                <td>{{product.totalQuantity}}</td>
+                <td>{{product.totalPrice}}</td>
+                <td>{{product.status}}</td>
+                <td>{{product.paymentMethod}}</td>
+                <td> <p-button (click)="showItems(product)" icon="pi pi-external-link" label="Show Order Items"> </p-button>
+                    <p-dialog header="Order Items" [(visible)]="product.id === selectedProduct && displayOrderItems" [style]="{width: '500px'}">
+                        <p-table [value]="product.orderItems" selectionMode="single"   responsiveLayout="scroll">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th >Product Name</th>
+                                    <th >Image</th>
+                                    <th >Quantity</th>
+                                    <th >Unit Price</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body"  let-item>
+                                <tr>
+                                  <td>{{item.name}}</td>
+                                  <td><img [src]="item.image" height="100px" width="100px" alt=""></td>
+                                  <td>{{item.quantity}}</td>
+                                  <td>{{item.unitPrice}}</td>
+                                 
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                        
+                    </p-dialog>
+                </td>
+                <td> <p-button (click)="showCustomer(product)" icon="pi pi-external-link" label="Show Customer"> </p-button>
+                    <p-dialog header="Customer" [(visible)]="product.id === selectedProduct && displayCustomer" [style]="{width: '500px'}">
+                        <p-table  selectionMode="single"   responsiveLayout="scroll">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th >First Name</th>
+                                    <th >Last Name</th>
+                                    <th >Email</th>
+                                    <!-- <th >Unit Price</th> -->
+                                    <!-- <th >test</th> -->
+                                    
+                                    
+                                </tr>
+                                <tr>
+                                    <th >{{product.customer.firstName}}</th>
+                                    <th >{{product.customer.lastName}}</th>
+                                    <th >{{product.customer.email}}</th>
+                                    <!-- <th >Unit Price</th> -->
+                                    <!-- <th >test</th> -->
+                                    
+                                    
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                        
+                    </p-dialog>
+                </td>
+                <td> <p-button (click)="showAdress(product)" icon="pi pi-external-link" label="Show Address"> </p-button>
+                    <p-dialog header="Shipping Address" [(visible)]="product.id === selectedProduct && displayAddress" [style]="{width: '500px'}">
+                        <p-table  selectionMode="single"   responsiveLayout="scroll">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th >Address Line</th>
+                                    <th >City </th>
+                                    <th >Country</th>
+                                    <th >Postal Code</th>
+                                    <!-- <th >test</th> -->
+                                    
+                                    
+                                </tr>
+                                <tr>
+                                    <th >{{product.shippingAddress.addressLine}}</th>
+                                    <th >{{product.shippingAddress.city}}</th>
+                                    <th >{{product.shippingAddress.country}}</th>
+                                    <th >{{product.shippingAddress.postalCode}}</th>
+                                    <!-- <th >Unit Price</th> -->
+                                    <!-- <th >test</th> -->
+                                    
+                                    
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                        
+                    </p-dialog>
+                </td>
+
+                <td> <p-button (click)="showAdress(product)" icon="pi pi-external-link" label="Show Address"> </p-button>
+                    <p-dialog header="Billing Address" [(visible)]="product.id === selectedProduct && displayAddress" [style]="{width: '500px'}">
+                        <p-table  selectionMode="single"   responsiveLayout="scroll">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th >Address Line</th>
+                                    <th >City </th>
+                                    <th >Country</th>
+                                    <th >Postal Code</th>
+                                    <!-- <th >test</th> -->
+                                    
+                                    
+                                </tr>
+                                <tr>
+                                    <th >{{product.shippingAddress.addressLine}}</th>
+                                    <th >{{product.shippingAddress.city}}</th>
+                                    <th >{{product.shippingAddress.country}}</th>
+                                    <th >{{product.shippingAddress.postalCode}}</th>
+                                    <!-- <th >Unit Price</th> -->
+                                    <!-- <th >test</th> -->
+                                    
+                                    
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                        
+                    </p-dialog>
+                </td>
+                
+                <td>{{product.dateCreated | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                <td>{{product.lastUpdated | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                <!-- In total there are {{customers ? customers.length : 0 }} items. -->
+            </div>
+        </ng-template>
+    </p-table>
+
+
+    <p-dialog [(visible)]="createDialog" [style]="{width: '450px'}" header="Update Status" [modal]="true" styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()" > -->
+    
+                <br>
+                <br><br>
+    
+                <div class="field" >
+                    <label for="imei">Status </label>
+                    <p-dropdown [options]="orderStatus"  [(ngModel)]="selectedStatus" placeholder="Select Status" ></p-dropdown>
+                    <!-- <input pInputText  formControlName="userid"  autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && form.controls['userid'].hasError('required') }"/> -->
+                    <!-- <small class="p-error" *ngIf="submitted && form.controls['userid'].hasError('required')">This field is required</small> -->
+                </div>
+                
+                     
+                <br><br><br><br><br><br>
+            
+                <!-- </form> -->
+    
+               
+    
+                
+            </ng-template>
+    
+            <ng-template pTemplate="footer">
+                <button  pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+                <button  pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="onSubmit()"></button>
+                <!-- <button *ngIf="newRecord==false" pButton pRipple label="Update" icon="pi pi-check" class="p-button-text" (click)="update()"></button> -->
+            </ng-template>
+        </p-dialog>
+
+
+<!--       
+
+        <p-dialog header="Customer" [(visible)]="displayCustomer" [style]="{width: '20vw'}">
+            <p-table [value]="products.customer" selectionMode="single"   responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th >test</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body"  let-item>
+                    <tr>
+                      <td>test</td>
+                     
+                    </tr>
+                </ng-template>
+            </p-table>
+            
+        </p-dialog>
+
+        <p-dialog header="Address" [(visible)]="displayAddress" [style]="{width: '20vw'}">
+            <p-table [value]="products.billingAddress" selectionMode="single"   responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th >Address Line</th>
+                        <th >City</th>
+                        <th >Country</th>
+                        <th >Postal Code</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body"  let-item>
+                    <tr>
+                      <td>{{item.addressLine}}</td>
+                      <td>{{item.city}}</td>
+                      <td>{{item.country}}</td>
+                      <td>{{item.poistalCode}}</td>
+                      
+                     
+                    </tr>
+                </ng-template>
+            </p-table>
+            
+        </p-dialog> -->
+
+        <p-confirmPopup></p-confirmPopup>

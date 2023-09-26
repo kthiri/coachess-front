@@ -1,0 +1,34 @@
+   
+    { 
+        "id": 1,
+        "name": "Motel Sunglasses",
+        "images": [
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            },
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            },
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            }
+        ],
+        "oldPrice": null,
+        "newPrice": 175,
+        "discount": null,
+        "ratingsCount": 4,
+        "ratingsValue": 420,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula, vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+        "availibilityCount": 5,
+        "cartCount": 0,
+        "color": ["#5C6BC0","#66BB6A","#90A4AE"],
+        "size": ["S","M","L", " "],
+        "weight": 150,
+        "categoryId": 2
+    }

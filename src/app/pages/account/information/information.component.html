@@ -1,0 +1,52 @@
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="50" class="p-2">
+        <h2 class="text-muted text-center">Account details</h2>
+        <form [formGroup]="infoForm" (ngSubmit)="onInfoFormSubmit(infoForm.value)">
+            <mat-form-field class="w-100 mt-2">
+                <input matInput placeholder="First Name" formControlName="firstName" required>
+                <mat-error *ngIf="infoForm.controls.firstName.errors?.required">First Name is required</mat-error>
+                <mat-error *ngIf="infoForm.controls.firstName.hasError('minlength')">First Name isn't long enough, minimum of 3 characters</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100 mt-1">
+                <input matInput placeholder="Last Name" formControlName="lastName" required>
+                <mat-error *ngIf="infoForm.controls.lastName.errors?.required">Last Name is required</mat-error>
+                <mat-error *ngIf="infoForm.controls.lastName.hasError('minlength')">Last Name isn't long enough, minimum of 3 characters</mat-error>
+            </mat-form-field>
+            <!-- <mat-form-field class="w-100 mt-1">
+                <input matInput placeholder="Email"  formControlName="email"  disabled>
+                <mat-error *ngIf="infoForm.controls.email.errors?.required">Email is required</mat-error>
+                <mat-error *ngIf="infoForm.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
+            </mat-form-field> -->
+            <div class="text-center mt-2">
+                <button mat-raised-button color="primary" (click)="onInfoFormSubmit(infoForm.value)">Save Details</button>
+            </div> 
+        </form>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="50" class="p-2" ngClass.sm="mt-2" ngClass.xs="mt-2">
+        <h2 class="text-muted text-center">Password change</h2>
+        <form [formGroup]="passwordForm" (ngSubmit)="onPasswordFormSubmit(passwordForm.value)">            
+            <mat-form-field class="w-100 mt-2">
+                <input matInput placeholder="Current Password" formControlName="currentPassword" type="password" minlength="6" required>
+                <mat-error *ngIf="passwordForm.controls.currentPassword.errors?.required">Current Password is required</mat-error>
+                <mat-error *ngIf="passwordForm.controls.currentPassword.hasError('minlength')">Current Password isn't long enough, minimum of 6 characters</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100 mt-1">
+                <input matInput placeholder="New Password" formControlName="password" type="password" minlength="6" required>
+                   <mat-error *ngIf="passwordForm.controls.password.errors?.required">Password is required.</mat-error>
+                    <mat-error *ngIf="passwordForm.controls.password.hasError('minlength')">Password must be at least 8 characters long.</mat-error>
+                    <mat-error *ngIf="passwordForm.controls.password.hasError('uppercase')">Password must contain at least one uppercase letter.</mat-error>
+                    <mat-error *ngIf="passwordForm.controls.password.hasError('lowercase')">Password must contain at least one lowercase letter.</mat-error>
+                    <mat-error *ngIf="passwordForm.controls.password.hasError('specialCharacter')">Password must contain at least one special chartacter letter.</mat-error>
+                    <mat-error *ngIf="passwordForm.controls.password.hasError('number')">Password must contain at least one number letter.</mat-error>
+            </mat-form-field> 
+            <mat-form-field *ngIf="passwordForm.controls.password.valid" class="w-100 mt-1">
+              <input  matInput placeholder="Confirm New Password" formControlName="confirmNewPassword" type="password" required>
+              <mat-error *ngIf="passwordForm.controls.confirmNewPassword.errors?.required">Confirm New Password is required</mat-error>
+              <mat-error *ngIf="passwordForm.controls.confirmNewPassword.hasError('mismatchedPasswords')">Passwords do not match</mat-error>
+            </mat-form-field>
+            <div class="text-center mt-2" *ngIf="passwordForm.valid">
+                <button mat-raised-button color="primary" (click)="onPasswordFormSubmit(passwordForm.value)">Change Password</button>
+            </div>
+        </form>
+    </div>
+</div> 

@@ -1,0 +1,150 @@
+[    
+    { 
+        "id": 1,
+        "name": "Motel Sunglasses",
+        "images": [
+            {
+                "small": "data:image/png;base64,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",
+                "medium": "data:image/png;base64,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",
+                "big": "assets/images/examples/img-s1.png"
+            },
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            },
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            }
+        ],
+        "oldPrice": null,
+        "newPrice": 175,
+        "discount": null,
+        "ratingsCount": 4,
+        "ratingsValue": 420,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula, vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+        "availibilityCount": 5,
+        "cartCount": 0,
+        "color": ["#5C6BC0","#66BB6A","#90A4AE"],
+        "size": ["S","M","L", " "],
+        "weight": 150,
+        "categoryId": 2
+    },
+    { 
+        "id": 2,
+        "name": "Delta Sunglasses",
+        "images": [
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            }
+        ],
+        "oldPrice": 110,
+        "newPrice": 88,
+        "discount": 15,
+        "ratingsCount": 8,
+        "ratingsValue": 800,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula, vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+        "availibilityCount": 3,
+        "cartCount": 0,
+        "color": ["#1D1D1D","#DADADA","#597087"],
+        "size": ["24''","28''","32''"],
+        "weight": 9550,
+        "categoryId": 2
+    },    
+    { 
+        "id": 3,
+        "name": "Echo Sunglasses",
+        "images": [
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            }
+        ],
+        "oldPrice": null,
+        "newPrice": 420,
+        "discount": null,
+        "ratingsCount": 12,
+        "ratingsValue": 1150,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula, vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+        "availibilityCount": 5,
+        "cartCount": 0,
+        "color": ["#474543","#8B8B8B","#FFFFFF"],
+        "size": ["14","22"],
+        "weight": 150,
+        "categoryId": 2
+    },   
+    { 
+        "id": 4,
+        "name": "Golf Sunglasses",
+        "images": [
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            }
+        ],
+        "oldPrice": 0,
+        "newPrice": 230,
+        "discount": 20,
+        "ratingsCount": 6,
+        "ratingsValue": 500,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula, vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+        "availibilityCount": 2,
+        "cartCount": 0,
+        "color": ["#4C4C4C","#B6B7B9"],
+        "size": ["13.3''","15.4''","17''"],
+        "weight": 2150,
+        "categoryId": 2
+    },
+    { 
+        "id": 5,
+        "name": "Charlie Sunglasses",
+        "images": [
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            }
+        ],
+        "oldPrice": null,
+        "newPrice": 77,
+        "discount": null,
+        "ratingsCount": 2,
+        "ratingsValue": 200,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula, vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+        "availibilityCount": 0,
+        "cartCount": 0,
+        "color": ["#1E1B00","#898E8B"],
+        "size": null,
+        "weight": 3250,
+        "categoryId": 2
+    },
+    { 
+        "id": 6,
+        "name": "Uniform Sunglasses",
+        "images": [
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            }   
+        ],
+        "oldPrice": null,
+        "newPrice": 66,
+        "discount": null,
+        "ratingsCount": 4,
+        "ratingsValue": 300,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula, vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+        "availibilityCount": 3,
+        "cartCount": 0,
+        "color": ["#464646","#F3F3F3","#E6E6E6"],
+        "size": null,
+        "weight": 9750,
+        "categoryId": 2
+    }
+]

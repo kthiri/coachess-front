@@ -1,0 +1,61 @@
+<div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+        <!-- <img src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="logo"> -->
+        <!-- <span>SUNGLASS-BUNGALOW</span> -->
+        <img src="assets/logChess3.png"  alt="Chess Logo" width="200" height="120">
+
+    </a>
+
+    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+        <i class="pi pi-bars"></i>
+    </button>
+
+    <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" (click)="layoutService.showProfileSidebar()">
+        <i class="pi pi-ellipsis-v"></i>
+    </button>
+
+    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+       
+        <button class="p-link layout-topbar-button" (click)="opp.toggle($event)">
+            <i class="pi pi-user"></i>
+            <span>Profile</span>
+        </button>
+        <button class="p-link layout-topbar-button" (click)="logout()" >
+            <i class="pi pi-sign-out"></i>
+            <span>Logout</span>
+        </button>
+    </div>
+
+
+    <p-overlayPanel #opp [showCloseIcon]="true" [style]="{width: '450px'}">
+        <ng-template pTemplate>
+            
+          <!-- <style>
+          
+.myCustom .layout-topbar .layout-topbar-menu {
+background-color: #606e6e;
+
+}
+          </style> -->
+<ng-container >
+<h2>User Infos</h2>
+<table>
+  
+  <tr>
+    <th scope="row">First Name :</th>
+    <td>{{user.nom}}</td>
+  </tr>
+  <tr>
+    <th scope="row">LastName :</th>
+    <td>{{user.prenom}}</td>
+  </tr>
+  <tr>
+    <th scope="row">Email :</th>
+    <td>{{user.email}}</td>
+  </tr>
+  
+</table>
+</ng-container>
+        </ng-template>
+    </p-overlayPanel>
+</div>

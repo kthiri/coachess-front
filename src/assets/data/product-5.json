@@ -1,0 +1,24 @@
+
+    { 
+        "id": 5,
+        "name": "Charlie Sunglasses",
+        "images": [
+            {
+                "small": "assets/images/examples/img-s1.png",
+                "medium": "assets/images/examples/img-s1.png",
+                "big": "assets/images/examples/img-s1.png"
+            }
+        ],
+        "oldPrice": null,
+        "newPrice": 77,
+        "discount": null,
+        "ratingsCount": 2,
+        "ratingsValue": 200,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula, vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+        "availibilityCount": 0,
+        "cartCount": 0,
+        "color": ["#1E1B00","#898E8B"],
+        "size": null,
+        "weight": 3250,
+        "categoryId": 2
+    }

@@ -1,0 +1,23 @@
+{ 
+    "id": 6,
+    "name": "Uniform Sunglasses",
+    "images": [
+        {
+            "small": "assets/images/examples/img-s1.png",
+            "medium": "assets/images/examples/img-s1.png",
+            "big": "assets/images/examples/img-s1.png"
+        }   
+    ],
+    "oldPrice": null,
+    "newPrice": 66,
+    "discount": null,
+    "ratingsCount": 4,
+    "ratingsValue": 300,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula, vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
+    "availibilityCount": 3,
+    "cartCount": 0,
+    "color": ["#464646","#F3F3F3","#E6E6E6"],
+    "size": null,
+    "weight": 9750,
+    "categoryId": 2
+}
